@@ -1,30 +1,32 @@
-
-import DaftarMenu from "./src/component/Homes/DaftarMenu";
-import Home from "./src/component/Home";
-import LoadingPage from "./src/component/LoadingPage";
+import React from "react";
+import { StatusBar } from "expo-status-bar";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import DaftarMenu from "./src/component/Daftar-Products/DaftarMenu";
 import Login from "./src/component/Login";
-
-// import Login from "./src/component/Login";
-
+import Home from "./src/component/Home";
+import Laporan from "./src/component/Laporan";
 
 export default function App() {
+  const Stack = createNativeStackNavigator();
   return (
-
-        // <LoadingPage/>
-        <DaftarMenu/>
-
-//     <View style={styles.container}>
-//       <Text>Open up App.js to start working on your app!</Text>
-//       <StatusBar style="auto" />
-//     </View>
+    <NavigationContainer>
+      <StatusBar backgroundColor={"white"} barStyle="dark-content" />
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
+        <Stack.Screen name="Home" component={Home} options={{ headerShown: false, gestureEnabled: false }} />
+        <Stack.Screen name="DaftarMenu" component={DaftarMenu} options={{
+            headerTitle: "Daftar Menu",
+            headerShown: true,
+            headerBackTitle: "Back",
+          }} />
+        <Stack.Screen name="Laporan" component={Laporan} options={{
+            headerTitle: "Laporan",
+            headerShown: true,
+            headerBackTitle: "Back",
+          }} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: '#fff',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-// });

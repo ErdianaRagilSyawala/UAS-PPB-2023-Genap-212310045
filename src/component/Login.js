@@ -1,17 +1,29 @@
 import { View, Text, Image, TextInput, StyleSheet } from 'react-native'
 import React, { useState } from 'react';
 import { TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 
 const Login = () => {
-  const [username, setUsername] = useState(" ");
-  const [password, setPassword] = useState(" ");
+  //for redirect to another page
+  const navigation = useNavigation();
+  //end initial
+
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleLogin = () => {
     //Logika untuk proses login
     //Misalnya, melakukan validasi dan mengirim permintaan ke server
     console.log('Username:', username);
     console.log('Password', password);
+    if(username && password){
+      //redirect to route page
+      navigation.navigate('Home');
+      //end redirect
+    }else{
+      alert("username & email tidak boleh kosong");
+    }
   };
 
   return (

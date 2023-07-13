@@ -1,78 +1,67 @@
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
-import React from 'react'
+import { View, Text, StyleSheet, Image, TouchableOpacity, SafeAreaView } from "react-native";
+import React from "react";
+import { useNavigation } from "@react-navigation/native";
 
 const Home = () => {
+  //for redirect to another page
+  const navigation = useNavigation();
+  //end initial
   return (
-    <View style={styles.container}>
-      <Image source={require("../../assets/MieAyam.jpeg")} 
-       style={{width: 120, height: 120, marginTop: 100, borderRadius: 100, }} />
-        <Text style={styles.text}>SELAMAT DATANG</Text>
-        <Text style={styles.text2}>OWNER BAKMIE JOKO</Text>
-        <Text style={styles.button1}>DAFTAR PRODUK</Text>
-        <Text style={styles.button3}>LAPORAN</Text>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <View style={{ flexDirection:"column", justifyContent:"center", alignItems:"center" }}>
+        <Image
+          source={require("../../assets/MieAyam.jpeg")}
+          style={{ width:100, height:100, borderRadius:100 }}
+        />
+        <View style={{ marginVertical:20 }}>
+          <Text style={styles.text}>SELAMAT DATANG</Text>
+          <Text style={styles.text2}>OWNER BAKMIE JOKO</Text>
+        </View>
+      </View>
+      <View style={{ marginTop:20 }}>
+        <TouchableOpacity  style={styles.button} onPress={()=>navigation.navigate('DaftarMenu')}>
+          <Text style={styles.buttonText}>DAFTAR PRODUK</Text>
+        </TouchableOpacity>
+        <TouchableOpacity  style={styles.button} onPress={()=>navigation.navigate('Laporan')}>
+          <Text style={styles.buttonText}>LAPORAN</Text>
+        </TouchableOpacity>
+      </View>
+    </SafeAreaView>
   );
 };
 
-const styles = StyleSheet.create ({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    padding: 20,
-    backgroundColor: '#EE8C33',
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#EE8C33",
   },
   text: {
-    textAlign:'center',
-    fontWeight:'bold',
+    textAlign: "center",
+    fontWeight: "bold",
     fontSize: 25,
-    color: 'white',
+    color: "white",
   },
   text2: {
-    textAlign: 'center',
-    fontWeight: 'bold',
+    textAlign: "center",
+    fontWeight: "bold",
     fontSize: 25,
-    color: '#E2AFAF'
+    color: "#E2AFAF",
   },
-  button1: {
-    backgroundColor: 'white',
-    width: '100%',
-    height: 50,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 100,
-    borderRadius: 15,
-    textAlign: 'center',
-    fontWeight: 'bold',
-    fontSize: 20,
-    paddingTop: 10,
+  button: {
+    backgroundColor: "white",
+    marginVertical:15,
+    paddingHorizontal:50,
+    paddingVertical:20,
+    borderRadius:10
   },
-  button2: {
-    backgroundColor: 'white',
-    width: '100%',
-    height: 50,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 20,
-    borderRadius: 15,
-    textAlign: 'center',
-    fontWeight: 'bold',
-    fontSize: 20,
-    paddingTop: 10,
-  },
-  button3: {
-    backgroundColor: 'white',
-    width: '100%',
-    height: 50,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 20,
-    borderRadius: 15,
-    textAlign: 'center',
-    fontWeight: 'bold',
-    fontSize: 20,
-    paddingTop: 10,
+  buttonText:{
+    fontSize: 25,
+    textAlign:"center",
+    color:"orange",
+    fontWeight:"bold"
   }
 });
 
-export default Home
+export default Home;
