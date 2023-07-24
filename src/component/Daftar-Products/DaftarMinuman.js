@@ -12,7 +12,7 @@ const Price = [
   { id: 6, image: require("../../../assets/TehTawar.png"), name: "Teh Tawar", harga: 1000 },
 ];
 
-  function DaftarMInuman() {
+  function DaftarMinuman() {
   const [counts, setCounts] = useState({});
   const [totalPrice, setTotalPrice] = useState(0);
   const navigation = useNavigation();
@@ -224,4 +224,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default DaftarMInuman;
+export default DaftarMinuman;
