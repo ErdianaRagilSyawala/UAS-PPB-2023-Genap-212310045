@@ -1,30 +1,53 @@
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, Image, TouchableOpacity, SafeAreaView } from 'react-native'
 import React from 'react'
+import { useNavigation } from "@react-navigation/native";
 
 const Home = () => {
+  //for redirect to another page
+  const navigation = useNavigation();
+  //end initial
+  const handleKeluar = () => {
+    navigation.navigate('Login');
+  };
+  
   return (
-    <View style={styles.container}>
-      <Image source={require("../../assets/MieAyam.jpeg")} 
-       style={{width: 120, height: 120, marginTop: 100, borderRadius: 100, }} />
-        <Text style={styles.text}>SELAMAT DATANG</Text>
-        <Text style={styles.text2}>OWNER BAKMIE JOKO</Text>
-        <Text style={styles.button1}>DAFTAR PRODUK</Text>
-        <Text style={styles.button3}>LAPORAN</Text>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <View style={{ flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
+        <Image
+          source={require("../../assets/MieAyam.jpeg")}
+          style={{ width: 100, height: 100, borderRadius: 100 }}
+        />
+        <View style={{ marginVertical: 20 }}>
+          <Text style={styles.text}>SELAMAT DATANG</Text>
+          <Text style={styles.text2}>OWNER BAKMIE JOKO</Text>
+        </View>
+      </View>
+      <View style={{ marginTop: 50 }}>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('DaftarMenu')}>
+          <Text style={styles.buttonText}>Daftar Menu</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Laporan')}>
+          <Text style={styles.buttonText}>Laporan</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={[styles.button2, { alignSelf: 'center' }]} onPress={handleKeluar}>
+          <Text style={styles.buttonText2}>Keluar</Text>
+        </TouchableOpacity>
+      </View>
+    </SafeAreaView>
   );
 };
 
-const styles = StyleSheet.create ({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
     backgroundColor: '#EE8C33',
   },
   text: {
-    textAlign:'center',
-    fontWeight:'bold',
+    textAlign: 'center',
+    fontWeight: 'bold',
     fontSize: 25,
     color: 'white',
   },
@@ -32,47 +55,44 @@ const styles = StyleSheet.create ({
     textAlign: 'center',
     fontWeight: 'bold',
     fontSize: 25,
-    color: '#E2AFAF'
+    color: 'white'
   },
-  button1: {
-    backgroundColor: 'white',
-    width: '100%',
-    height: 50,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 100,
-    borderRadius: 15,
+  text3: {
     textAlign: 'center',
     fontWeight: 'bold',
-    fontSize: 20,
-    paddingTop: 10,
+    fontSize: 25,
+    color: 'brown'
+  },
+  button: {
+    backgroundColor: "white",
+    marginVertical: 15,
+    width: 300,
+    height: 60,
+    borderRadius: 20,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   button2: {
-    backgroundColor: 'white',
-    width: '100%',
-    height: 50,
+    backgroundColor: "#76470E",
+    marginVertical: 75,
+    width: 300,
+    height: 60,
+    borderRadius: 20,
     justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 20,
-    borderRadius: 15,
-    textAlign: 'center',
-    fontWeight: 'bold',
-    fontSize: 20,
-    paddingTop: 10,
+    alignItems: 'center'
   },
-  button3: {
-    backgroundColor: 'white',
-    width: '100%',
-    height: 50,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 20,
-    borderRadius: 15,
-    textAlign: 'center',
-    fontWeight: 'bold',
+  buttonText: {
     fontSize: 20,
-    paddingTop: 10,
+    textAlign: "center",
+    color: "333333",
+    fontWeight: "bold"
+  },
+  buttonText2: {
+    fontSize: 20,
+    textAlign: "center",
+    color: "white",
+    fontWeight: "bold"
   }
 });
 
-export default Home
+export default Home;

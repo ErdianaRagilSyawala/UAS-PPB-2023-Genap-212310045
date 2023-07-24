@@ -1,25 +1,38 @@
 import { View, Text, Image, TextInput, StyleSheet } from 'react-native'
 import React, { useState } from 'react';
 import { TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 
 const Login = () => {
-  const [username, setUsername] = useState(" ");
-  const [password, setPassword] = useState(" ");
+  //for redirect to another page
+  const navigation = useNavigation();
+  //end initial
+
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleLogin = () => {
     //Logika untuk proses login
     //Misalnya, melakukan validasi dan mengirim permintaan ke server
     console.log('Username:', username);
     console.log('Password', password);
+    if(username && password){
+      //redirect to route page
+      navigation.navigate('Home');
+      //end redirect
+    }else{
+      alert("username & password tidak boleh kosong");
+    }
   };
 
   return (
 
     <View style={styles.container}>
       <Image source={require("../../assets/MieAyam.jpeg")} 
-       style={{width: 150, height: 150, marginTop: 30, borderRadius: 100}} />
-      <Text style={{textAlign: "center", fontWeight: "bold", fontSize: 30, color: "white"}}>BAKMIE JOKO</Text>
+       style={{width: 100, height: 100, marginTop: 30, borderRadius: 100}} />
+      <Text style={{textAlign: "center", fontWeight: "bold", fontSize: 30, color: "white",}}>BAKMIE JOKO</Text>
+      <Text style={{ color: 'white'}}>Slurp it, Blurp it, and Love it!</Text>
       <TextInput 
        style={styles.input}
        placeholder='Username'
@@ -52,7 +65,7 @@ const styles = StyleSheet.create({
     backgroundColor:'#EE8C33'
   },
   input: {
-    width: '100%',
+    width: '80%',
     height: 40,
     borderWidth: 1,
     borderColor: '#EE8D33',
@@ -63,7 +76,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   inputp: {
-    width: '100%',
+    width: '80%',
     height: 40,
     borderWidth: 1,
     borderColor: '#EE8D33',
@@ -75,11 +88,11 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: '#76470E',
-    width: '100%',
+    width: '70%',
     height: 40,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 50,
+    marginTop: 30,
     borderRadius: 33,
   },
   buttonText: {
@@ -87,6 +100,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     borderRadius: 33,
   },
+
 });
 
 export default Login
