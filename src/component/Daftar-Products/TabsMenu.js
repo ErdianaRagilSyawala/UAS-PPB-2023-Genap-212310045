@@ -1,6 +1,7 @@
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native'
 import React, { useState } from 'react'
 import DaftarMakanan from './DaftarMakanan';
+
 import DaftarMinuman from './DaftarMInuman';
 
 const TabsMenu = () => {

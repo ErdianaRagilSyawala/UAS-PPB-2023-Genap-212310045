@@ -4,15 +4,15 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { useNavigation } from '@react-navigation/native';
 
 const Price = [
-    { id: 1, image: require("../../../assets/MieAyamOriginal.png"), name: "Mie Ayam", harga: 13000 },
-    { id: 2, image: require("../../../assets/MieAyamBaksoBesar.png"), name:"Mie Ayam Plus Bakso Besar", harga: 25000 },
-    { id: 3, image: require("../../../assets/MieAyamBaksoKecil.png"), name: "Mie Ayam plus Bakso Kecil", harga: 18000 },
-    { id: 4, image: require("../../../assets/BihunBakso.png"), name: "Bihun Bakso", harga: 25000 },
-    { id: 5, image: require("../../../assets/Bakso1Porsi.png"), name: "Baso 1 Porsi", harga: 18000 },
-    { id: 6, image: require("../../../assets/YaminBakso.png"), name: "Yamin Bakso", harga: 23000 },
+    { id: 1, image: require("../../../assets/TehTawar.png"), name: "Teh Tawar", harga: 4000 },
+    { id: 2, image: require("../../../assets/EsTehTawar.png"), name:"Es Teh Tawar", harga: 5000 },
+    { id: 3, image: require("../../../assets/EsTehManis.png"), name: "Es Teh Manis", harga: 5000 },
+    { id: 4, image: require("../../../assets/EsJeruk.png"), name: "Es Jeruk", harga: 6000 },
+    { id: 5, image: require("../../../assets/MinumanBotol.png"), name: "Minuman Botol", harga: 7000 },
+    { id: 6, image: require("../../../assets/JusAlpukat.png"), name: "Jus Alpukat", harga: 10000 },
   ];
   
-    function DaftarMakanan(){
+    function DaftarMinuman(){
     const [counts, setCounts] = useState({});
     const [totalPrice, setTotalPrice] = useState(0);
     const navigation = useNavigation();
@@ -225,4 +225,4 @@ const Price = [
 
 
 
-export default DaftarMakanan;
+export default DaftarMinuman;
